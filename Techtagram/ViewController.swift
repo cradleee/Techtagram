@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var cameraImageView: UIImageView!
 
@@ -19,8 +19,19 @@ class ViewController: UIViewController {
     
     //撮影する時のメソッド
     @IBAction func useCamera(){
-        
-        
+        //カメラが使えるか確認
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            //カメラを起動
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.delegate = self
+        picker.allowsEditing = true
+            
+            present(picker, animated: true, completion:nil)
+        } else {
+            //カメラを使えない時はエラーがコンソールに出ます
+             print("error")
+        }
     }
     
     //表示している画像にフィルター加工をする時のメソッド
