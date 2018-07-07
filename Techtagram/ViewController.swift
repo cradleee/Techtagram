@@ -20,9 +20,15 @@ class ViewController: UIViewController {
     //撮影する時のメソッド
     @IBAction func useCamera(){
         
+        
     }
     
     //表示している画像にフィルター加工をする時のメソッド
+    @IBAction func applyFilter() {
+        
+    }
+    
+    //編集した画像を保存する時のメソッド
     @IBAction func save() {
         
     }
